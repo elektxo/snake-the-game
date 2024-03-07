@@ -13,6 +13,8 @@ red = (213, 50, 80)
 green = (0, 255, 0)
 blue = (50, 153, 213)
 
+score = 0
+
 # Tamaño de la pantalla
 dis_width = 800
 dis_height = 600
@@ -25,14 +27,23 @@ font_style = pygame.font.SysFont("bahnschrift", 25)
 
 # Función para mostrar texto en pantalla
 def message(msg, color):
+    global score
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
 
+    msg2 = f"Tu puntuacion es de {score}"
+    mesg2 = font_style.render(msg2, True, green)
+    dis.blit(mesg2, [dis_width / 6, dis_height / 4])
+
 # Función principal del juego
 def gameLoop():
+    global score
+    
     # Variables para controlar el juego
     game_over = False
     game_close = False
+
+    score = 0
 
     # Posición inicial del snake
     x1 = dis_width / 2
