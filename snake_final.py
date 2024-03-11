@@ -1,5 +1,5 @@
 import pygame
-import time
+
 import random
 
 # Inicialización de Pygame
@@ -38,11 +38,9 @@ def message(msg, color):
 # Función principal del juego
 def gameLoop():
     global score
-    
     # Variables para controlar el juego
     game_over = False
     game_close = False
-
     score = 0
 
     # Posición inicial del snake
@@ -129,6 +127,7 @@ def gameLoop():
             foodx = round(random.randrange(0, dis_width - block_size) / 20.0) * 20.0
             foody = round(random.randrange(0, dis_height - block_size) / 20.0) * 20.0
             length_of_snake += 1
+            score += 1
 
         # Control de velocidad del juego
         pygame.time.Clock().tick(15)
